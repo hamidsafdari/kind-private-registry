@@ -1,0 +1,12 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: kind-cluster
+nodes:
+- role: control-plane
+  extraMounts:
+  - containerPath: '/usr/local/share/ca-certificates/extra/'
+    hostPath: 'registry/certs/'
+containerdConfigPatches:
+- |-
+  [plugins."io.containerd.grpc.v1.cri".registry.mirrors."arch.xps:443"]
+    endpoint = ["https://kind-registry:443"]

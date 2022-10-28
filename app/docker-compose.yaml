@@ -1,0 +1,10 @@
+services:
+  web:
+    image: nginx:stable-alpine
+    container_name: nginx-test
+    volumes:
+     - ./src:/usr/share/nginx/html
+    ports:
+     - "8080:80"
+    environment:
+     - NGINX_PORT=80
