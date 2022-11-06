@@ -6,7 +6,12 @@ nodes:
   extraMounts:
   - containerPath: '/usr/local/share/ca-certificates/extra/'
     hostPath: 'registry/certs/'
+# add worker nodes by duplicating and uncommenting the following
+#- role: worker
+#  extraMounts:
+#  - containerPath: '/usr/local/share/ca-certificates/extra/'
+#    hostPath: 'registry/certs/'
 containerdConfigPatches:
 - |-
-  [plugins."io.containerd.grpc.v1.cri".registry.mirrors."arch.xps:443"]
+  [plugins."io.containerd.grpc.v1.cri".registry.mirrors."$HOSTNAME:443"]
     endpoint = ["https://kind-registry:443"]
