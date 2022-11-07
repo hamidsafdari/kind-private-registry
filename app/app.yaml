@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: sample-deployment
+  name: sample-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample-deployment
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: sample-deployment
+    spec:
+      containers:
+      - image: kind-registry:443/sample-app:latest
+        imagePullPolicy: IfNotPresent
+        name: sample
+        ports: 
+        - containerPort: 80
+      imagePullSecrets:
+      - name: regcred
