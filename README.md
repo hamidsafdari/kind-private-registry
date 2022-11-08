@@ -7,6 +7,10 @@ and you can avoid using options like docker's
 *"insecureRegistries"*. There's also a project included so
 you can test your setup.
 
+> Note: 
+> 1. Create a directory and run all the following commands in the same directory.
+> 2. Install `docker`, `kind` and `kubectl` first.
+
 ### Steps:
 
 1. Generate SSL certificate 
@@ -15,9 +19,6 @@ you can test your setup.
 4. Create private registry
 5. Create KinD cluster
 6. Import certificate into KinD cluster
-
-> Note: Create a directory and run all the following 
-> commands in the same directory.
 
 ### 1. Generate SSL certificate
 You will need to generate a certificate that is valid for
